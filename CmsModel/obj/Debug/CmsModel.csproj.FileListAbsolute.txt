@@ -1,0 +1,16 @@
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\CmsModel.dll.config
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\CmsModel.dll
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\CmsModel.pdb
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\EntityFramework.dll
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\EntityFramework.SqlServer.dll
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\System.Data.SQLite.dll
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\System.Data.SQLite.EF6.dll
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\System.Data.SQLite.Linq.dll
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\EntityFramework.xml
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\EntityFramework.SqlServer.xml
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\System.Data.SQLite.xml
+D:\C#_code\ClassManageSystem\CmsModel\bin\Debug\System.Data.SQLite.dll.config
+D:\C#_code\ClassManageSystem\CmsModel\obj\Debug\CmsModel.csproj.CoreCompileInputs.cache
+D:\C#_code\ClassManageSystem\CmsModel\obj\Debug\CmsModel.csproj.CopyComplete
+D:\C#_code\ClassManageSystem\CmsModel\obj\Debug\CmsModel.dll
+D:\C#_code\ClassManageSystem\CmsModel\obj\Debug\CmsModel.pdb
