@@ -64,6 +64,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FindClassRoom.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FindClassRoom.Designer.cs">
+      <DependentUpon>FindClassRoom.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,9 @@
     <Compile Include="TeacherManager.Designer.cs">
       <DependentUpon>TeacherManager.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FindClassRoom.resx">
+      <DependentUpon>FindClassRoom.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
