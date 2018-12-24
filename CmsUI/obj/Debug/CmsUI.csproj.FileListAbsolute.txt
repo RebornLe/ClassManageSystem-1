@@ -31,3 +31,13 @@ D:\C#_code\ClassManageSystem\CmsUI\obj\Debug\CmsUI.exe
 D:\C#_code\ClassManageSystem\CmsUI\obj\Debug\CmsUI.pdb
 D:\C#_code\ClassManageSystem\CmsUI\bin\Debug\System.Data.SQLite.EF6.dll
 D:\C#_code\ClassManageSystem\CmsUI\bin\Debug\System.Data.SQLite.Linq.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.csprojAssemblyReference.cache
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.Login.resources
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.Properties.Resources.resources
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.Regist.resources
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.Student.resources
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.TeacherManager.resources
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.csproj.GenerateResource.cache
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.csproj.CoreCompileInputs.cache
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.exe
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.pdb

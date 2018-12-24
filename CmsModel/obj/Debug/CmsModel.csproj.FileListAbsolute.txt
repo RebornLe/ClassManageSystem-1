@@ -14,3 +14,20 @@ D:\C#_code\ClassManageSystem\CmsModel\obj\Debug\CmsModel.csproj.CoreCompileInput
 D:\C#_code\ClassManageSystem\CmsModel\obj\Debug\CmsModel.csproj.CopyComplete
 D:\C#_code\ClassManageSystem\CmsModel\obj\Debug\CmsModel.dll
 D:\C#_code\ClassManageSystem\CmsModel\obj\Debug\CmsModel.pdb
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\CmsModel.dll.config
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\CmsModel.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\CmsModel.pdb
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\EntityFramework.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\EntityFramework.SqlServer.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\System.Data.SQLite.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\System.Data.SQLite.EF6.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\System.Data.SQLite.Linq.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\EntityFramework.xml
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\EntityFramework.SqlServer.xml
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\System.Data.SQLite.xml
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\bin\Debug\System.Data.SQLite.dll.config
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\obj\Debug\CmsModel.csprojAssemblyReference.cache
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\obj\Debug\CmsModel.csproj.CoreCompileInputs.cache
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\obj\Debug\CmsModel.csproj.CopyComplete
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\obj\Debug\CmsModel.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\obj\Debug\CmsModel.pdb
