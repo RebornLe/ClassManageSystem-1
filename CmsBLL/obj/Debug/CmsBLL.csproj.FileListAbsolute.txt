@@ -24,3 +24,7 @@ D:\C#_code\ClassManageSystem\CmsBLL\obj\Debug\CmsBLL.csproj.CoreCompileInputs.ca
 D:\C#_code\ClassManageSystem\CmsBLL\obj\Debug\CmsBLL.csproj.CopyComplete
 D:\C#_code\ClassManageSystem\CmsBLL\obj\Debug\CmsBLL.dll
 D:\C#_code\ClassManageSystem\CmsBLL\obj\Debug\CmsBLL.pdb
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsBLL\obj\Debug\CmsBLL.csprojAssemblyReference.cache
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsBLL\obj\Debug\CmsBLL.csproj.CoreCompileInputs.cache
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsBLL\obj\Debug\CmsBLL.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsBLL\obj\Debug\CmsBLL.pdb

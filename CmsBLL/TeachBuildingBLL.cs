@@ -15,5 +15,10 @@ namespace CmsBLL
             TeachBuildingDAL miDal = new TeachBuildingDAL();
             return miDal.GetList();
         }
+        public List<string> GetBuildingsName()
+        {
+            TeachBuildingDAL miDal = new TeachBuildingDAL();
+            return miDal.GetBuildingsName();
+        }
     }
 }

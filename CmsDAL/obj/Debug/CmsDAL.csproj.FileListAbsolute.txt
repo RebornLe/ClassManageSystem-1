@@ -21,3 +21,7 @@ D:\C#_code\ClassManageSystem\CmsDAL\obj\Debug\CmsDAL.csproj.CoreCompileInputs.ca
 D:\C#_code\ClassManageSystem\CmsDAL\obj\Debug\CmsDAL.csproj.CopyComplete
 D:\C#_code\ClassManageSystem\CmsDAL\obj\Debug\CmsDAL.dll
 D:\C#_code\ClassManageSystem\CmsDAL\obj\Debug\CmsDAL.pdb
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsDAL\obj\Debug\CmsDAL.csprojAssemblyReference.cache
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsDAL\obj\Debug\CmsDAL.csproj.CoreCompileInputs.cache
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsDAL\obj\Debug\CmsDAL.dll
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsDAL\obj\Debug\CmsDAL.pdb
