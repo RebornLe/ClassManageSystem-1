@@ -41,29 +41,33 @@ namespace CmsDAL
         /// </summary>
         /// <param name="clno"></param>
         /// <returns></returns>
-        public BorrowClassRoom GetList(string Clno)
+        public List<BorrowClassRoom> GetList(string Clno)
         {
-            BorrowClassRoom BCR = null;
+            List < BorrowClassRoom > list= new List<BorrowClassRoom>();
             string sql = "SELECT * FROM BorrowClassRoom WHERE clno=@Clno";
             SQLiteParameter p = new SQLiteParameter("@Clno", Clno);
             DataTable dt = SqlHelper.GetDataTable(sql, p);
             if (dt.Rows.Count > 0)
             {
-                BCR = new BorrowClassRoom()
+                foreach (DataRow row in dt.Rows)
                 {
-                    clno = Clno,
-                    uname = dt.Rows[0]["uname"].ToString(),                   
-                    weekday = dt.Rows[0]["weekday"].ToString(),
-                    period = dt.Rows[0]["period"].ToString(),
-                    use = dt.Rows[0]["use"].ToString(),
-                    usestatus = Convert.ToInt32(dt.Rows[0]["usestatus"])
-                };
+                    list.Add(new BorrowClassRoom()
+                    {
+                        clno = row["clno"].ToString(),
+                        uname = row["uname"].ToString(),
+                        weekday = row["weekday"].ToString(),
+                        period = row["period"].ToString(),
+                        use = row["use"].ToString(),
+                        usestatus = Convert.ToInt32(row["usestatus"])
+                    });
+                }
+                return list;
             }
             else
             {
 
             }                                         
-            return BCR;
+            return list;
         }
     }
 }

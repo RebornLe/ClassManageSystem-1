@@ -13,9 +13,9 @@ namespace CmsDAL
     {
         //从配置文本中读取连接字符串
         //private static readonly string coonstr = ConfigurationManager.ConnectionStrings["Cms"].ConnectionString;
-
+        private static readonly string coonstr = @"Data Source =  ..\..\..\CmsDb.db; version = 3";
         //private static readonly string coonstr = @"Data Source =  D:\C#_code\ClassManageSystem\ClassManageSystem.sqlite; version = 3";
-        private static readonly string coonstr = @"Data Source =  D:\C#_code\ClassManageSystem\CmsDb.db; version = 3";
+        //private static readonly string coonstr = @"Data Source =  D:\C#_code\ClassManageSystem\CmsDb.db; version = 3";
         //private static readonly string coonstr = @"Data Source =  E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\ClassManageSystem.sqlite; version = 3";
         //执行insert update delete的方法
         public static int ExecuteNonQuery(string sql, params SQLiteParameter[] ps)

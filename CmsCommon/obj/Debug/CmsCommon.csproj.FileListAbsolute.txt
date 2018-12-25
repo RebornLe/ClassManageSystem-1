@@ -26,7 +26,6 @@ E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsCommon\bin\Debug\Ent
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsCommon\bin\Debug\EntityFramework.SqlServer.xml
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsCommon\bin\Debug\System.Data.SQLite.xml
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsCommon\bin\Debug\System.Data.SQLite.dll.config
-E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsCommon\obj\Debug\CmsCommon.csprojAssemblyReference.cache
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsCommon\obj\Debug\CmsCommon.csproj.CoreCompileInputs.cache
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsCommon\obj\Debug\CmsCommon.csproj.CopyComplete
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsCommon\obj\Debug\CmsCommon.dll

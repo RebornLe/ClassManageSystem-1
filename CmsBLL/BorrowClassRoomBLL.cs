@@ -16,7 +16,7 @@ namespace CmsBLL
             BorrowClassRoomDAL miDal = new BorrowClassRoomDAL();
             return miDal.GetList();
         }
-        public BorrowClassRoom GetList(string clno)
+        public List<BorrowClassRoom> GetList(string clno)
         {
             BorrowClassRoomDAL miDal = new BorrowClassRoomDAL();
             return miDal.GetList(clno);
