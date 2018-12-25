@@ -15,5 +15,11 @@ namespace CmsBLL
             TeacherDAL miDal = new TeacherDAL();
             return miDal.GetList();
         }
+
+        public List<Teacher> tnameGetList(string tname)
+        {
+            TeacherDAL miDal = new TeacherDAL();
+            return miDal.tnameGetList(tname);
+        }
     }
 }

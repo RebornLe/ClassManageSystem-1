@@ -36,24 +36,24 @@ namespace CmsUI
                 clno = comboBox1.Text;
             }
             
-            LoadList(clno);          
+            clnoLoadList(clno);          
         }
 
-        private void LoadList(string clno)
+        private void clnoLoadList(string clno)
         {
             BorrowClassRoomBLL miBll = new BorrowClassRoomBLL();                      
-            dgvList.DataSource = miBll.GetList(clno);
+            dgvList.DataSource = miBll.clnoGetList(clno);
             //dgvList.Columns["usestatus"].Visible = false;
         }
 
-        private void rb1_CheckedChanged(object sender, EventArgs e)
+        private void rb1_CheckedChanged(object sender, EventArgs e)//关键词
         {
             txtName.ReadOnly = false;
             comboBox2.Visible = false;
             comboBox1.Visible = false;                  
         }
 
-        private void rb2_CheckedChanged(object sender, EventArgs e)
+        private void rb2_CheckedChanged(object sender, EventArgs e)//目录
         {
             txtName.Text = "";
             txtName.ReadOnly = true;
@@ -93,9 +93,55 @@ namespace CmsUI
         {
             dgvList.DataSource = null;
         }
+
         #endregion
 
         #region 教师查询
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)//关键词按钮
+        {
+            textBox1.ReadOnly = false;
+            comboBox3.Visible = false;
+            comboBox4.Visible = false;
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)//目录按钮
+        {
+            textBox1.ReadOnly = true;
+            textBox1.Text = "";
+            comboBox3.Visible = true;
+            comboBox4.Visible = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)//查找
+        {
+            string tname;
+            if (rb1.Checked == true)
+            {
+                tname = txtName.Text;
+            }
+
+            else
+            {
+                tname = comboBox1.Text;
+            }
+            tnameLoadList(tname);
+        }
+
+        private void button1_Click(object sender, EventArgs e)//取消
+        {
+            radioButton2.Checked = true;
+            textBox1.Text = "";
+            textBox1.ReadOnly = false;
+            comboBox3.Visible = false;
+            comboBox4.Visible = false;
+        }
+
+        private void tnameLoadList(string tname)//将按名取得的教师信息赋给表1的数据源
+        {
+            TeacherBLL miBll = new TeacherBLL();
+            dataGridView1.DataSource = miBll.tnameGetList(tname);
+        }
 
         #endregion
 
@@ -110,7 +156,6 @@ namespace CmsUI
         #region 教室借用
 
         #endregion
-
 
     }
 }

@@ -41,7 +41,7 @@ namespace CmsDAL
         /// </summary>
         /// <param name="clno"></param>
         /// <returns></returns>
-        public List<BorrowClassRoom> GetList(string Clno)
+        public List<BorrowClassRoom> clnoGetList(string Clno)
         {
             List < BorrowClassRoom > list= new List<BorrowClassRoom>();
             string sql = "SELECT * FROM BorrowClassRoom WHERE clno=@Clno";

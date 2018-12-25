@@ -512,6 +512,7 @@
             this.radioButton1.TabIndex = 10;
             this.radioButton1.Text = "目录";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // radioButton2
             // 
@@ -525,6 +526,7 @@
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "关键词";
             this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // label6
             // 
@@ -545,6 +547,7 @@
             this.button1.TabIndex = 7;
             this.button1.Text = "取消";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -555,6 +558,7 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "查找";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label7
             // 

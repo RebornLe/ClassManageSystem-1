@@ -12,6 +12,10 @@ namespace CmsDAL
 {
     public class ClassRoomDAL
     {
+        /// <summary>
+        /// 获取全部教室信息
+        /// </summary>
+        /// <returns></returns>
         public List<ClassRoom> GetList()
         {
             string sql = "SELECT * FROM ClassRoom";
@@ -28,6 +32,12 @@ namespace CmsDAL
             }
             return list;
         }
+
+        /// <summary>
+        /// 通过建筑号取得建筑的所有教室的号码
+        /// </summary>
+        /// <param name="bno"></param>
+        /// <returns></returns>
         public List<string> GetClno(string bno)
         {
             string sql = "SELECT clno FROM ClassRoom WHERE bno=@bno";
