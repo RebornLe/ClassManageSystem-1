@@ -19,7 +19,8 @@ namespace CmsUI
             InitializeComponent();
             comboBox2.Visible = false;
             comboBox1.Visible = false;
-            
+            yx.Visible = false;
+            js.Visible = false;
         }
 
         #region 教室查询子系统
@@ -100,30 +101,30 @@ namespace CmsUI
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)//关键词按钮
         {
-            textBox1.ReadOnly = false;
-            comboBox3.Visible = false;
-            comboBox4.Visible = false;
+            jsxm.ReadOnly = false;
+            yx.Visible = false;
+            js.Visible = false;
         }
 
         private void radioButton1_CheckedChanged(object sender, EventArgs e)//目录按钮
         {
-            textBox1.ReadOnly = true;
-            textBox1.Text = "";
-            comboBox3.Visible = true;
-            comboBox4.Visible = true;
+            jsxm.ReadOnly = true;
+            jsxm.Text = "";
+            yx.Visible = true;
+            js.Visible = true;
+            Dept_Tname_LoadList();
         }
 
         private void button2_Click(object sender, EventArgs e)//查找
         {
             string tname;
-            if (rb1.Checked == true)
+            if (radioButton2.Checked == true)
             {
-                tname = txtName.Text;
+                tname = jsxm.Text;
             }
-
             else
             {
-                tname = comboBox1.Text;
+                tname = js.Text;
             }
             tnameLoadList(tname);
         }
@@ -131,10 +132,21 @@ namespace CmsUI
         private void button1_Click(object sender, EventArgs e)//取消
         {
             radioButton2.Checked = true;
-            textBox1.Text = "";
-            textBox1.ReadOnly = false;
-            comboBox3.Visible = false;
-            comboBox4.Visible = false;
+            jsxm.Text = "";
+            jsxm.ReadOnly = false;
+            yx.Visible = false;
+            js.Visible = false;
+            List<Teacher> list = new List<Teacher>();
+            dataGridView1.DataSource = list;
+
+            //rb2.Checked = false;
+            //rb1.Checked = true;
+            //txtName.Text = "";
+            //comboBox2.Visible = false;
+            //comboBox1.Visible = false;
+            //txtName.ReadOnly = false;
+            //List<BorrowClassRoom> list = new List<BorrowClassRoom>();
+            //dgvList.DataSource = list;
         }
 
         private void tnameLoadList(string tname)//将按名取得的教师信息赋给表1的数据源
@@ -143,6 +155,23 @@ namespace CmsUI
             dataGridView1.DataSource = miBll.tnameGetList(tname);
         }
 
+        private void Dept_Tname_LoadList()//按目录查询的两个下拉框数据源
+        {
+            DepartmentBLL mibll = new DepartmentBLL();
+            yx.DataSource = mibll.GetAllDeptname();
+            TeacherBLL miBll = new TeacherBLL();
+            string deptname = yx.Text;
+            js.DataSource = miBll.deptnoGetNameList(mibll.GetDeptno(deptname));
+        }
+
+        private void yx_SelectedIndexChanged(object sender, EventArgs e)//选择学院时，更新教师下拉框的数据源
+        {
+            DepartmentBLL mibll = new DepartmentBLL();
+            //yx.DataSource = mibll.GetAllDeptname();
+            TeacherBLL miBll = new TeacherBLL();
+            string deptname = yx.Text;
+            js.DataSource = miBll.deptnoGetNameList(mibll.GetDeptno(deptname));
+        }
         #endregion
 
         #region 教师查询
@@ -156,6 +185,7 @@ namespace CmsUI
         #region 教室借用
 
         #endregion
+
 
     }
 }

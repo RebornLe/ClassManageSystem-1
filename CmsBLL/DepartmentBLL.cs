@@ -15,5 +15,17 @@ namespace CmsBLL
             DepartmentDAL miDal = new DepartmentDAL();
             return miDal.GetList();
         }
+
+        public string GetDeptno(string deptname)
+        {
+            DepartmentDAL miDal = new DepartmentDAL();
+            return miDal.GetDeptno(deptname);
+        }
+
+        public List<string> GetAllDeptname()
+        {
+            DepartmentDAL miDal = new DepartmentDAL();
+            return miDal.GetAllDeptname();
+        }
     }
 }

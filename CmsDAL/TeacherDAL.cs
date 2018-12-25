@@ -67,5 +67,23 @@ namespace CmsDAL
             }    
             return list;
         }
+
+        /// <summary>
+        /// 根据学院号取得学院的所有老师姓名
+        /// </summary>
+        /// <param name="deptno"></param>
+        /// <returns></returns>
+        public List<string> deptnoGetNameList(string deptno)
+        {
+            string sql = "SELECT tname FROM Teacher WHERE deptno=@deptno";
+            SQLiteParameter p = new SQLiteParameter("@deptno", deptno);
+            DataTable dt = SqlHelper.GetDataTable(sql, p);
+            List<string> list = new List<string>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(row["tname"].ToString());
+            }
+            return list;
+        }
     }
 }

@@ -21,5 +21,11 @@ namespace CmsBLL
             TeacherDAL miDal = new TeacherDAL();
             return miDal.tnameGetList(tname);
         }
+
+        public List<string> deptnoGetNameList(string deptno)
+        {
+            TeacherDAL miDal = new TeacherDAL();
+            return miDal.deptnoGetNameList(deptno);
+        }
     }
 }

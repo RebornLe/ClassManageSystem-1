@@ -41,11 +41,8 @@ namespace CmsDAL
         public List<string> GetClno(string bno)
         {
             string sql = "SELECT clno FROM ClassRoom WHERE bno=@bno";
-            SQLiteParameter[] ps =
-            {
-                new SQLiteParameter("@bno",bno)
-            };
-            DataTable dt = SqlHelper.GetDataTable(sql,ps);
+            SQLiteParameter p = new SQLiteParameter("@bno",bno);
+            DataTable dt = SqlHelper.GetDataTable(sql,p);
             List<string> list = new List<string>();
             foreach (DataRow row in dt.Rows)
             {
