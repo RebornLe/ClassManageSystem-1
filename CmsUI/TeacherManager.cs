@@ -21,6 +21,7 @@ namespace CmsUI
         #region 教室查询子系统
         private void btnSave_Click(object sender, EventArgs e)//教室查找
         {
+            string clno = comboBox1.Text;
 
         }
 
@@ -39,22 +40,35 @@ namespace CmsUI
             comboBox2.DataSource = mibll.GetBuildingsName();
             //取得选取的教学楼名
             string bname = comboBox2.Text;
-           
-            //comboBox1.DataSource =;
+            ClassRoomBLL miBll = new ClassRoomBLL();          
+            comboBox1.DataSource =miBll.GetClno(mibll.BuildingsNameToNoumber(bname));           
+        }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            comboBox1.DataSource = null;
+            comboBox2.DataSource = null;
+            dgvList.DataSource = null;
 
+            txtName.Text = "";
         }
         #endregion
+
         #region 教师查询
 
         #endregion
+
         #region 教师查询
 
         #endregion
+
         #region 课程查询
 
         #endregion
+
         #region 教室借用
 
         #endregion
+
+
     }
 }

@@ -36,8 +36,6 @@ namespace CmsDAL
                 });
             }
             return list;
-        }
-
-        public int  
+        } 
     }
 }

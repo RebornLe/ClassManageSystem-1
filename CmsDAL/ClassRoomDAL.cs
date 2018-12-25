@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using CmsModel;
+using System.Data.SQLite;
 
 namespace CmsDAL
 {
@@ -23,6 +25,21 @@ namespace CmsDAL
                     bno = row["bno"].ToString(),
                     floor = row["floor"].ToString()
                 });
+            }
+            return list;
+        }
+        public List<string> GetClno(string bno)
+        {
+            string sql = "SELECT clno FROM ClassRoom WHERE bno=@bno";
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@bno",bno)
+            };
+            DataTable dt = SqlHelper.GetDataTable(sql,ps);
+            List<string> list = new List<string>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(row["clno"].ToString());
             }
             return list;
         }

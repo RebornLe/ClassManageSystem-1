@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace CmsDAL
 {
     public class TeachBuildingDAL
-    {
+    {       
         /// <summary>
         /// 查询教学楼信息
         /// </summary>
@@ -35,13 +36,12 @@ namespace CmsDAL
         /// <returns></returns>
         public List<string> GetBuildingsName()
         {
-            List<TeachBuilding> listB = GetList();
-
+            string sql = "SELECT bname FROM TeachBuilding";
+            DataTable dt = SqlHelper.GetDataTable(sql);
             List<string> list = new List<string>();
-            foreach (TeachBuilding tb in listB)
+            foreach (DataRow row in dt.Rows)
             {
-
-                list.Add(tb.bname);
+                list.Add(row["bname"].ToString());
             }
             return list;
         }
@@ -52,17 +52,14 @@ namespace CmsDAL
         /// <returns></returns>
         public string BuildingsNameToNoumber(string bname)
         {
-            string Bno;
-            List<TeachBuilding> listB = GetList();
-            foreach (TeachBuilding tb in listB)
+            string sql = "SELECT bno FROM TeachBuilding WHERE bname=@bname";
+            SQLiteParameter[] ps =
             {
-                if (tb.bname == bname)
-                {
-                    Bno = tb.bno;
-                    break;
-                }
-            }
-            return Bno;
+                new SQLiteParameter("@bname",bname)
+            };
+            DataTable dt = SqlHelper.GetDataTable(sql, ps);
+            string bno=dt.ToString();          
+            return bno;
         }
     }
 }
