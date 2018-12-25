@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CmsUI
 {
-    public partial class Student : Form
+    public partial class StudentMain : Form
     {
-        public Student()
+        public StudentMain()
         {
             InitializeComponent();
         }

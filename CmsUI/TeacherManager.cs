@@ -21,7 +21,10 @@ namespace CmsUI
         #region 教室查询子系统
         private void btnSave_Click(object sender, EventArgs e)//教室查找
         {
-            string clno = comboBox1.Text;
+            string clno = txtName.Text+comboBox1.Text;
+            BorrowClassRoomBLL miBll = new BorrowClassRoomBLL();
+            dgvList.Columns[6].Visible = false;
+            dgvList.DataSource = miBll.GetList(clno);
 
         }
 
@@ -43,12 +46,13 @@ namespace CmsUI
             ClassRoomBLL miBll = new ClassRoomBLL();          
             comboBox1.DataSource =miBll.GetClno(mibll.BuildingsNameToNoumber(bname));           
         }
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)//取消按钮，还原
         {
             comboBox1.DataSource = null;
             comboBox2.DataSource = null;
             dgvList.DataSource = null;
-
+            radioButton1.Checked=true;
+            txtName.ReadOnly = false;
             txtName.Text = "";
         }
         #endregion

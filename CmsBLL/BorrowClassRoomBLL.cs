@@ -11,10 +11,15 @@ namespace CmsBLL
 {
     public class BorrowClassRoomBLL
     {
-        public List<BorrowClassRoom> GetList()
+        public List<BorrowClassRoom> Load()
         {
             BorrowClassRoomDAL miDal = new BorrowClassRoomDAL();
             return miDal.GetList();
-        } 
+        }
+        public BorrowClassRoom GetList(string clno)
+        {
+            BorrowClassRoomDAL miDal = new BorrowClassRoomDAL();
+            return miDal.GetList(clno);
+        }
     }
 }

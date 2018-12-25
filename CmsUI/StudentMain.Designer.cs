@@ -1,6 +1,6 @@
 ﻿namespace CmsUI
 {
-    partial class Student
+    partial class StudentMain
     {
         /// <summary>
         /// Required designer variable.

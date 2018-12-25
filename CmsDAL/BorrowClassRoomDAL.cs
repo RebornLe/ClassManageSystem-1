@@ -27,15 +27,45 @@ namespace CmsDAL
                 list.Add(new BorrowClassRoom()
                 {
                     clno = row["clno"].ToString(),
-                    sno = row["sno"].ToString(),
+                    uname = row["uname"].ToString(),
                     usedate = row["usedata"].ToString(),
                     weekday = row["weekday"].ToString(),
                     period = row["period"].ToString(),
                     use = row["use"].ToString(),
-                    usestatus = row["usestatus"].ToString()
+                    usestatus =Convert.ToInt32(row["usestatus"]) 
                 });
             }
             return list;
-        } 
+        }
+        /// <summary>
+        /// 返回指定的教室信息
+        /// </summary>
+        /// <param name="clno"></param>
+        /// <returns></returns>
+        public BorrowClassRoom GetList(string Clno)
+        {
+            BorrowClassRoom BCR = null;
+            string sql = "SELECT * FROM BorrowClassRoom WHERE clno=@Clno";
+            SQLiteParameter p = new SQLiteParameter("@Clno", Clno);
+            DataTable dt = SqlHelper.GetDataTable(sql, p);
+            if (dt.Rows.Count > 0)
+            {
+                BCR = new BorrowClassRoom()
+                {
+                    clno = Clno,
+                    uname = dt.Rows[0]["uname"].ToString(),
+                    usedate = dt.Rows[0]["usedata"].ToString(),
+                    weekday = dt.Rows[0]["weekday"].ToString(),
+                    period = dt.Rows[0]["period"].ToString(),
+                    use = dt.Rows[0]["use"].ToString(),
+                    usestatus = Convert.ToInt32(dt.Rows[0]["usestatus"])
+                };
+            }
+            else
+            {
+
+            }                                         
+            return BCR;
+        }
     }
 }

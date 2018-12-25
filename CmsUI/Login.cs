@@ -32,12 +32,32 @@ namespace CmsUI
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            int type;
             string name = textName.Text;
             string pwd = textPwd.Text;
-            LoginState ls =  ub.login(name, pwd);
+            LoginState ls =  ub.login(name, pwd,out type);
             switch (ls)
             {
                 case LoginState.Ok:
+                    switch (type)
+                    {
+                        case 0:
+                            StudentMain su = new StudentMain();
+                            su.Show();
+                            this.Visible = false;
+                            break;
+                        case 1:
+                            TeacherManager tm = new TeacherManager();
+                            tm.Show();
+                            this.Visible = false;
+                            break;
+                        case 2:
+                            ScoolManager sm = new ScoolManager();
+                            sm.Show();
+                            this.Visible = false;
+                            break;
+                    }
+
                     break;
                 case LoginState.PasswordError:
                     MessageBox.Show("密码错误!");

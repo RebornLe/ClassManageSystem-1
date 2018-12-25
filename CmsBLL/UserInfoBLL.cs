@@ -18,8 +18,9 @@ namespace CmsBLL
             return udDal.Insert(ui) > 0;
         }
 
-        public LoginState login(string name, string pwd)
+        public LoginState login(string name, string pwd,out int type)
         {
+            type = -1;
             UserInfo ui = udDal.getByName(name);
             if (ui == null)
             {
@@ -30,6 +31,7 @@ namespace CmsBLL
                 if (ui.uPwd == Md5Helper.EncryptString(pwd))
                 {
                     //密码正确
+                    type = ui.uType;
                     return LoginState.Ok;
                 }
                 else
@@ -37,6 +39,7 @@ namespace CmsBLL
                     return LoginState.PasswordError;
                 }
             }
+
         }
     }
 }

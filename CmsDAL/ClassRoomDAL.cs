@@ -14,7 +14,7 @@ namespace CmsDAL
     {
         public List<ClassRoom> GetList()
         {
-            string sql = "SELECT * FROM ClassRoom";
+            string sql = "SELECT * FROM ClassRoom1";
             DataTable dt = SqlHelper.GetDataTable(sql);
             List<ClassRoom> list = new List<ClassRoom>();
             foreach(DataRow row in dt.Rows)
@@ -30,7 +30,7 @@ namespace CmsDAL
         }
         public List<string> GetClno(string bno)
         {
-            string sql = "SELECT clno FROM ClassRoom WHERE bno=@bno";
+            string sql = "SELECT clno FROM ClassRoom1 WHERE bno=@bno";
             SQLiteParameter[] ps =
             {
                 new SQLiteParameter("@bno",bno)
