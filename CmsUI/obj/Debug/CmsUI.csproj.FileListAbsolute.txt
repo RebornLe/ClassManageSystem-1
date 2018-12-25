@@ -66,3 +66,5 @@ E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\bin\Debug\CmsDAL.
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\bin\Debug\CmsDAL.dll.config
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.csproj.CopyComplete
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.StudentMain.resources
+D:\C#_code\ClassManageSystem\CmsUI\obj\Debug\CmsUI.StudentMain.resources
+D:\C#_code\ClassManageSystem\CmsUI\obj\Debug\CmsUI.TeacherManager.resources

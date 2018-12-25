@@ -21,11 +21,11 @@ namespace CmsUI
         #region 教室查询子系统
         private void btnSave_Click(object sender, EventArgs e)//教室查找
         {
-            string clno = txtName.Text+comboBox1.Text;
-            BorrowClassRoomBLL miBll = new BorrowClassRoomBLL();
-            dgvList.Columns[6].Visible = false;
-            dgvList.DataSource = miBll.GetList(clno);
-
+            //string clno = txtName.Text+comboBox1.Text;
+            //BorrowClassRoomBLL miBll = new BorrowClassRoomBLL();
+            //dgvList.Columns[6].Visible = false;
+            //dgvList.DataSource = miBll.GetList(clno);
+            
         }
 
         private void rb1_CheckedChanged(object sender, EventArgs e)
@@ -54,6 +54,15 @@ namespace CmsUI
             radioButton1.Checked=true;
             txtName.ReadOnly = false;
             txtName.Text = "";
+        }
+        private void LoadList()
+        {
+            TeachBuildingBLL miBll = new TeachBuildingBLL();
+            dgvList.DataSource = miBll.GetList();
+        }
+        private void TeacherManager_Load(object sender, EventArgs e)
+        {
+            LoadList();
         }
         #endregion
 
