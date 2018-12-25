@@ -27,8 +27,7 @@ namespace CmsDAL
                 list.Add(new BorrowClassRoom()
                 {
                     clno = row["clno"].ToString(),
-                    uname = row["uname"].ToString(),
-                    usedate = row["usedata"].ToString(),
+                    uname = row["uname"].ToString(),                  
                     weekday = row["weekday"].ToString(),
                     period = row["period"].ToString(),
                     use = row["use"].ToString(),
@@ -53,8 +52,7 @@ namespace CmsDAL
                 BCR = new BorrowClassRoom()
                 {
                     clno = Clno,
-                    uname = dt.Rows[0]["uname"].ToString(),
-                    usedate = dt.Rows[0]["usedata"].ToString(),
+                    uname = dt.Rows[0]["uname"].ToString(),                   
                     weekday = dt.Rows[0]["weekday"].ToString(),
                     period = dt.Rows[0]["period"].ToString(),
                     use = dt.Rows[0]["use"].ToString(),

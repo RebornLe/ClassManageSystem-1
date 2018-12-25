@@ -31,3 +31,4 @@ E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\obj\Debug\CmsM
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\obj\Debug\CmsModel.csproj.CopyComplete
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\obj\Debug\CmsModel.dll
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsModel\obj\Debug\CmsModel.pdb
+D:\C#_code\ClassManageSystem\CmsModel\obj\Debug\CmsModel.csprojAssemblyReference.cache

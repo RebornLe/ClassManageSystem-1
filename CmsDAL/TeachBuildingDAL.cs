@@ -52,13 +52,10 @@ namespace CmsDAL
         /// <returns></returns>
         public string BuildingsNameToNoumber(string bname)
         {
-            string sql = "SELECT bno FROM TeachBuilding WHERE bname=@bname";
-            SQLiteParameter[] ps =
-            {
-                new SQLiteParameter("@bname",bname)
-            };
+            string sql = "SELECT bno FROM TeachBuilding WHERE bname=@bname"; 
+            SQLiteParameter ps = new SQLiteParameter("@bname",bname);
             DataTable dt = SqlHelper.GetDataTable(sql, ps);
-            string bno=dt.ToString();          
+            string bno=dt.Rows[0][0].ToString();          
             return bno;
         }
     }
