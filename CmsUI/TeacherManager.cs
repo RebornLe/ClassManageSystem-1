@@ -127,6 +127,7 @@ namespace CmsUI
                 tname = js.Text;
             }
             tnameLoadList(tname);
+            tnoLoadTeachCourseList(tname);
         }
 
         private void button1_Click(object sender, EventArgs e)//取消
@@ -153,6 +154,13 @@ namespace CmsUI
         {
             TeacherBLL miBll = new TeacherBLL();
             dataGridView1.DataSource = miBll.tnameGetList(tname);
+        }
+
+        private void tnoLoadTeachCourseList(string tname)//指定教师开课信息表数据源
+        {
+            TeacherBLL miBll = new TeacherBLL();
+            TeacherCourseBLL mibll = new TeacherCourseBLL();
+            dataGridView4.DataSource = mibll.tnoGetList(miBll.tnameGetTno(tname));    
         }
 
         private void Dept_Tname_LoadList()//按目录查询的两个下拉框数据源

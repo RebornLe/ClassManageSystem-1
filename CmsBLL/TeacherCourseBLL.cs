@@ -15,5 +15,11 @@ namespace CmsBLL
             TeacherCourseDAL miDal = new TeacherCourseDAL();
             return miDal.GetList();
         }
+
+        public List<TeacherCourse> tnoGetList(string tno)
+        {
+            TeacherCourseDAL miDal = new TeacherCourseDAL();
+            return miDal.tnoGetList(tno);
+        }
     }
 }
