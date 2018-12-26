@@ -96,6 +96,17 @@
             this.label16 = new System.Windows.Forms.Label();
             this.Tid = new System.Windows.Forms.TextBox();
             this.Sex = new System.Windows.Forms.ComboBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.BorrowClassRoomList = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.Remove = new System.Windows.Forms.Button();
+            this.Agree = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -106,9 +117,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.ClassRoomList)).BeginInit();
             this.groupBox4.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeacherList)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BorrowClassRoomList)).BeginInit();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -549,6 +564,8 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.groupBox8);
+            this.tabPage4.Controls.Add(this.groupBox7);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Size = new System.Drawing.Size(1161, 486);
@@ -847,6 +864,121 @@
             this.Sex.Size = new System.Drawing.Size(210, 23);
             this.Sex.TabIndex = 20;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.BorrowClassRoomList);
+            this.groupBox7.Location = new System.Drawing.Point(4, 4);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox7.Size = new System.Drawing.Size(837, 478);
+            this.groupBox7.TabIndex = 8;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "列表";
+            // 
+            // BorrowClassRoomList
+            // 
+            this.BorrowClassRoomList.AllowUserToAddRows = false;
+            this.BorrowClassRoomList.AllowUserToDeleteRows = false;
+            this.BorrowClassRoomList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BorrowClassRoomList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxColumn12,
+            this.dataGridViewTextBoxColumn13,
+            this.Column6});
+            this.BorrowClassRoomList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BorrowClassRoomList.Location = new System.Drawing.Point(4, 22);
+            this.BorrowClassRoomList.Margin = new System.Windows.Forms.Padding(4);
+            this.BorrowClassRoomList.MultiSelect = false;
+            this.BorrowClassRoomList.Name = "BorrowClassRoomList";
+            this.BorrowClassRoomList.ReadOnly = true;
+            this.BorrowClassRoomList.RowTemplate.Height = 23;
+            this.BorrowClassRoomList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.BorrowClassRoomList.Size = new System.Drawing.Size(829, 452);
+            this.BorrowClassRoomList.TabIndex = 1;
+            this.BorrowClassRoomList.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.BorrowClassRoomList_CellFormatting);
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "clno";
+            this.dataGridViewTextBoxColumn9.HeaderText = "教室号";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "uname";
+            this.dataGridViewTextBoxColumn10.HeaderText = "使用人姓名";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "weekday";
+            this.dataGridViewTextBoxColumn11.HeaderText = "工作日";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "period";
+            this.dataGridViewTextBoxColumn12.HeaderText = "借用时间段";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "use";
+            this.dataGridViewTextBoxColumn13.HeaderText = "用途";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "usestatus";
+            this.Column6.HeaderText = "状态";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.Remove);
+            this.groupBox8.Controls.Add(this.Agree);
+            this.groupBox8.Location = new System.Drawing.Point(845, 7);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox8.Size = new System.Drawing.Size(308, 475);
+            this.groupBox8.TabIndex = 9;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "申请处理";
+            // 
+            // Remove
+            // 
+            this.Remove.Location = new System.Drawing.Point(50, 270);
+            this.Remove.Margin = new System.Windows.Forms.Padding(4);
+            this.Remove.Name = "Remove";
+            this.Remove.Size = new System.Drawing.Size(223, 29);
+            this.Remove.TabIndex = 4;
+            this.Remove.Text = "删除申请";
+            this.Remove.UseVisualStyleBackColor = true;
+            this.Remove.Click += new System.EventHandler(this.Remove_Click);
+            // 
+            // Agree
+            // 
+            this.Agree.Location = new System.Drawing.Point(50, 132);
+            this.Agree.Margin = new System.Windows.Forms.Padding(4);
+            this.Agree.Name = "Agree";
+            this.Agree.Size = new System.Drawing.Size(223, 29);
+            this.Agree.TabIndex = 6;
+            this.Agree.Text = "同意申请";
+            this.Agree.UseVisualStyleBackColor = true;
+            this.Agree.Click += new System.EventHandler(this.Agree_Click);
+            // 
             // ScoolManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -868,10 +1000,14 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.TeacherList)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BorrowClassRoomList)).EndInit();
+            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -946,5 +1082,16 @@
         private System.Windows.Forms.TextBox Tid;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox Sex;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button Remove;
+        private System.Windows.Forms.Button Agree;
+        private System.Windows.Forms.DataGridView BorrowClassRoomList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

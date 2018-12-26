@@ -120,5 +120,48 @@ namespace CmsDAL
             };
             return SqlHelper.ExecuteNonQuery(sql, ps);
         }
+
+        /// <summary>
+        /// 取得等待申请审核的数据
+        /// </summary>
+        /// <returns></returns>
+        public List<BorrowClassRoom> GetWaitList()
+        {
+            string sql = "SELECT * FROM BorrowClassRoom WHERE usestatus='0'";
+            DataTable dt = SqlHelper.GetDataTable(sql);
+            List<BorrowClassRoom> list = new List<BorrowClassRoom>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(new BorrowClassRoom()
+                {
+                    clno = row["clno"].ToString(),
+                    uname = row["uname"].ToString(),
+                    weekday = row["weekday"].ToString(),
+                    period = row["period"].ToString(),
+                    use = row["use"].ToString(),
+                    usestatus = Convert.ToInt32(row["usestatus"])
+                });
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 删除一个指定数据
+        /// </summary>
+        /// <param name="borrowClassRoom"></param>
+        /// <returns></returns>
+        public int DeleteOne(BorrowClassRoom borrowClassRoom)
+        {
+            string sql = "DELETE FROM BorrowClassRoom WHERE clno=@clno AND uname=@uname AND weekday=@weekday AND period=@period AND use=@use AND usestatus=@usestatus";
+            SQLiteParameter[] ps = {
+                new SQLiteParameter("@clno",borrowClassRoom.clno),
+                new SQLiteParameter("@uname",borrowClassRoom.uname),
+                new SQLiteParameter("@weekday",borrowClassRoom.weekday),
+                new SQLiteParameter("@period",borrowClassRoom.period),
+                new SQLiteParameter("@use",borrowClassRoom.use),
+                new SQLiteParameter("@usestatus",borrowClassRoom.usestatus)
+            };
+            return SqlHelper.ExecuteNonQuery(sql, ps);
+        }
     }
 }

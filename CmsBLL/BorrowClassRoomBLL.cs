@@ -28,5 +28,13 @@ namespace CmsBLL
         {
             return miDal.Insert(borrowClassRoom) > 0;
         }
+        public List<BorrowClassRoom> GetWaitList()
+        {
+            return miDal.GetWaitList();
+        }
+        public bool RemoveOne(BorrowClassRoom borrowClassRoom)
+        {
+            return miDal.DeleteOne(borrowClassRoom) > 0;
+        }
     }
 }

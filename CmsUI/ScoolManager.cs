@@ -25,6 +25,7 @@ namespace CmsUI
             LoadCourseList();
             LoadClassRoomList();
             LoadTeacherList();
+            LoadBorrowClassRoomList();
         }
 
         #region 课程信息管理
@@ -351,6 +352,62 @@ namespace CmsUI
             Title.Text = row.Cells[4].Value.ToString();
             Tid.Text = row.Cells[5].Value.ToString();
             TeacherAdd.Text = "修改";
+        }
+        #endregion
+
+        #region
+        private void Agree_Click(object sender, EventArgs e)//同意申请
+        {
+
+        }
+
+        private void Remove_Click(object sender, EventArgs e)//删除申请
+        {
+            var rows = BorrowClassRoomList.SelectedRows;
+            if (rows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("确定要删除吗？", "提示", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+                BorrowClassRoom  borrowClassRoom =new BorrowClassRoom(){
+                    clno=rows[0].Cells[0].Value.ToString(),
+                    uname=rows[0].Cells[1].Value.ToString(),
+                    weekday=rows[0].Cells[2].Value.ToString(),
+                    period=rows[0].Cells[3].Value.ToString(),
+                    use=rows[0].Cells[4].Value.ToString(),
+                    usestatus=Convert.ToInt32(rows[0].Cells[5].Value)
+                };
+                BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
+                if (borrowClassRoomBLL.RemoveOne(borrowClassRoom))
+                {
+                    MessageBox.Show("删除成功");
+                    LoadBorrowClassRoomList();
+                }
+                else
+                {
+                    MessageBox.Show("删除失败");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择要删除的行");
+            }
+        }
+
+        private void LoadBorrowClassRoomList()//教室借用信息数据源
+        {
+            BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
+            BorrowClassRoomList.DataSource = borrowClassRoomBLL.GetWaitList();
+        }
+
+        private void BorrowClassRoomList_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)//对状态类格式化，0-申请，1-同意
+        {
+            if (e.ColumnIndex == 5)
+            {
+                e.Value = e.Value.ToString() == "1" ? "同意" : "申请";
+            }
         }
         #endregion
     }
