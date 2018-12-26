@@ -68,3 +68,4 @@ E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.c
 E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.StudentMain.resources
 D:\C#_code\ClassManageSystem\CmsUI\obj\Debug\CmsUI.StudentMain.resources
 D:\C#_code\ClassManageSystem\CmsUI\obj\Debug\CmsUI.TeacherManager.resources
+E:\Microsoft Visual Studio\workspace\ClassManageSystem-1\CmsUI\obj\Debug\CmsUI.ScoolManager.resources

@@ -113,6 +113,9 @@
     <EmbeddedResource Include="Regist.resx">
       <DependentUpon>Regist.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ScoolManager.resx">
+      <DependentUpon>ScoolManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StudentMain.resx">
       <DependentUpon>StudentMain.cs</DependentUpon>
     </EmbeddedResource>

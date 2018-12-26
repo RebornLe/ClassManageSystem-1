@@ -10,22 +10,34 @@ namespace CmsBLL
 {
     public class CourseBLL
     {
+        CourseDAL miDal = new CourseDAL();
         public List<Course> GetList()
-        {
-            CourseDAL miDal = new CourseDAL();
+        {            
             return miDal.GetList();
         }
 
         public List<Course> cnameGetList(string cname)
         {
-            CourseDAL miDal = new CourseDAL();
             return miDal.cnameGetList(cname);
         }
 
         public List<string> deptnoGetcname(string deptno)
         {
-            CourseDAL miDal = new CourseDAL();
             return miDal.deptnoGetcname(deptno);
+        }
+
+        public bool Add(Course course)
+        {
+            return miDal.Insert(course) > 0;
+        }
+
+        public bool Edit(Course course)
+        {
+            return miDal.Update(course) > 0;
+        }
+        public bool Remove(string cno)
+        {
+            return miDal.Delete(cno)>0;
         }
     }
 }

@@ -14,7 +14,7 @@ namespace CmsDAL
         /// <summary>
         /// 取得学院表的全部数据
         /// </summary>
-        /// <returns></returns>
+        /// <returns>List学院数据</returns>
         public List<Department> GetList()
         {
             string sql = "SELECT * FROM Department";
@@ -35,7 +35,7 @@ namespace CmsDAL
         /// 取得所有学院名
         /// </summary>
         /// <param name="deptname"></param>
-        /// <returns></returns>
+        /// <returns>所有学院名list</returns>
         public List<string> GetAllDeptname()
         {
             string sql = "SELECT deptname FROM Department";         
@@ -48,10 +48,26 @@ namespace CmsDAL
             return list;
         }
         /// <summary>
+        /// 取得所有学院号
+        /// </summary>
+        /// <returns>学院号字符串列表</returns>
+        public List<string> GetAllDeptno()
+        {
+            string sql = "SELECT deptno FROM Department";
+            DataTable dt = SqlHelper.GetDataTable(sql);
+            List<string> list = new List<string>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(row["deptno"].ToString());
+            }
+            return list;
+        }
+
+        /// <summary>
         /// 通过学院名取得学院的号码
         /// </summary>
-        /// <param name="deptname"></param>
-        /// <returns></returns>
+        /// <param name="deptname">学院名</param>
+        /// <returns>学院号</returns>
         public string GetDeptno(string deptname)
         {
             string sql = "SELECT deptno FROM Department WHERE deptname=@deptname";
