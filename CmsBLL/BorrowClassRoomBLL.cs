@@ -36,5 +36,9 @@ namespace CmsBLL
         {
             return miDal.DeleteOne(borrowClassRoom) > 0;
         }
+        public bool Edit(BorrowClassRoom borrowClassRoom)
+        {
+            return miDal.Update(borrowClassRoom) > 0;
+        }
     }
 }

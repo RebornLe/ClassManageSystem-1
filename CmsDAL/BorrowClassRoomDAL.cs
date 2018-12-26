@@ -163,5 +163,25 @@ namespace CmsDAL
             };
             return SqlHelper.ExecuteNonQuery(sql, ps);
         }
+
+        /// <summary>
+        /// 更新教室借用数据表的一条数据
+        /// </summary>
+        /// <param name="course"></param>
+        /// <returns></returns>
+        public int Update(BorrowClassRoom borrowClassRoom)
+        {
+            string sql = "UPDATE BorrowClassRoom SET usestatus=@usestatus WHERE clno=@clno AND uname=@uname AND weekday=@weekday AND period=@period AND use=@use";
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@clno",borrowClassRoom.clno),
+                new SQLiteParameter("@uname",borrowClassRoom.uname),
+                new SQLiteParameter("@weekday",borrowClassRoom.weekday),
+                new SQLiteParameter("@period",borrowClassRoom.period),
+                new SQLiteParameter("@use",borrowClassRoom.use),
+                new SQLiteParameter("@usestatus",borrowClassRoom.usestatus)
+            };
+            return SqlHelper.ExecuteNonQuery(sql, ps);
+        }
     }
 }

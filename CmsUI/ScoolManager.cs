@@ -52,7 +52,7 @@ namespace CmsUI
             CourseBLL courseBLL = new CourseBLL();
             #region 添加
             if (CourseAdd.Text.Equals("添加"))
-            {                              
+            {
                 if (courseBLL.Add(course))
                 {
                     MessageBox.Show("添加成功");
@@ -117,7 +117,7 @@ namespace CmsUI
             if (rows.Count > 0)
             {
                 DialogResult result = MessageBox.Show("确定要删除吗？", "提示", MessageBoxButtons.OKCancel);
-                if(result == DialogResult.Cancel)
+                if (result == DialogResult.Cancel)
                 {
                     return;
                 }
@@ -144,7 +144,7 @@ namespace CmsUI
         #region 教室信息管理
         private void ClassRoomAdd_Click(object sender, EventArgs e)//添加、修改按钮
         {
-            ClassRoom classRoom=new ClassRoom()
+            ClassRoom classRoom = new ClassRoom()
             {
                 clno = Clno.Text,
                 bno = Bno.Text,
@@ -236,7 +236,7 @@ namespace CmsUI
             Clno.Text = row.Cells[0].Value.ToString();
             Clno.ReadOnly = true;
             Bno.Text = row.Cells[1].Value.ToString();
-            Floor.Text = row.Cells[2].Value.ToString();          
+            Floor.Text = row.Cells[2].Value.ToString();
             ClassRoomAdd.Text = "修改";
         }
         #endregion
@@ -244,14 +244,14 @@ namespace CmsUI
         #region
         private void TeacherAdd_Click(object sender, EventArgs e)//添加、修改按钮
         {
-            Teacher teacher=new Teacher()
+            Teacher teacher = new Teacher()
             {
                 tno = Tno.Text,
                 tname = Tname.Text,
                 sex = Sex.Text,
                 title = Title.Text,
                 deptno = DeptnoT.Text,
-                tid =Tid.Text
+                tid = Tid.Text
             };
             TeacherBLL teacherBLL = new TeacherBLL();
             #region 添加
@@ -358,6 +358,38 @@ namespace CmsUI
         #region
         private void Agree_Click(object sender, EventArgs e)//同意申请
         {
+            var rows = BorrowClassRoomList.SelectedRows;
+            if (rows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("确定要同意申请吗？", "提示", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+                BorrowClassRoom borrowClassRoom = new BorrowClassRoom()
+                {
+                    clno = rows[0].Cells[0].Value.ToString(),
+                    uname = rows[0].Cells[1].Value.ToString(),
+                    weekday = rows[0].Cells[2].Value.ToString(),
+                    period = rows[0].Cells[3].Value.ToString(),
+                    use = rows[0].Cells[4].Value.ToString(),
+                    usestatus = 1
+                };
+                BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
+                if (borrowClassRoomBLL.Edit(borrowClassRoom))
+                {
+                    MessageBox.Show("同意申请完成");
+                    LoadBorrowClassRoomList();
+                }
+                else
+                {
+                    MessageBox.Show("通过申请失败");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择要通过申请的行");
+            }
 
         }
 
@@ -371,13 +403,14 @@ namespace CmsUI
                 {
                     return;
                 }
-                BorrowClassRoom  borrowClassRoom =new BorrowClassRoom(){
-                    clno=rows[0].Cells[0].Value.ToString(),
-                    uname=rows[0].Cells[1].Value.ToString(),
-                    weekday=rows[0].Cells[2].Value.ToString(),
-                    period=rows[0].Cells[3].Value.ToString(),
-                    use=rows[0].Cells[4].Value.ToString(),
-                    usestatus=Convert.ToInt32(rows[0].Cells[5].Value)
+                BorrowClassRoom borrowClassRoom = new BorrowClassRoom()
+                {
+                    clno = rows[0].Cells[0].Value.ToString(),
+                    uname = rows[0].Cells[1].Value.ToString(),
+                    weekday = rows[0].Cells[2].Value.ToString(),
+                    period = rows[0].Cells[3].Value.ToString(),
+                    use = rows[0].Cells[4].Value.ToString(),
+                    usestatus = Convert.ToInt32(rows[0].Cells[5].Value)
                 };
                 BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
                 if (borrowClassRoomBLL.RemoveOne(borrowClassRoom))
