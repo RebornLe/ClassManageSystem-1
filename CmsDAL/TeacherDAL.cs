@@ -85,5 +85,18 @@ namespace CmsDAL
             }
             return list;
         }
+
+        /// <summary>
+        /// 根据教师姓名取得教师号
+        /// </summary>
+        /// <param name="tname"></param>
+        /// <returns></returns>
+        public string tnameGetTno(string tname)
+        {
+            string sql = "SELECT tno FROM Teacher WHERE tname=@tname";
+            SQLiteParameter p = new SQLiteParameter("@tname", tname);
+            string list = SqlHelper.ExecuteScalar(sql, p).ToString();
+            return list;
+        }
     }
 }
