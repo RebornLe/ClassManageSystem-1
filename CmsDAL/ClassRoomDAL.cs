@@ -73,5 +73,34 @@ namespace CmsDAL
             }
             return list;
         }
+
+        /// <summary>
+        /// 取得除特定教室号的其他教室信息
+        /// </summary>
+        /// <param name="clno"></param>
+        /// <returns></returns>
+        public List<ClassRoom> GetList(List<string> clnolist)
+        {
+            string sql = "SELECT * FROM ClassRoom WHERE clno not in (@clno)";
+            SQLiteParameter[] ps = {
+                foreach(clnolist)
+                {
+                    new SQLiteParameter("@clno", clnolist. )
+                }
+                
+            };
+            DataTable dt = SqlHelper.GetDataTable(sql, p);
+            List<ClassRoom> list = new List<ClassRoom>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(new ClassRoom()
+                {
+                    clno = row["clno"].ToString(),
+                    bno = row["bno"].ToString(),
+                    floor = row["floor"].ToString()
+                });
+            }
+            return list;
+        }
     }
 }

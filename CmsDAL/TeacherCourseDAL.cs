@@ -57,5 +57,36 @@ namespace CmsDAL
             }
             return list;
         }
+
+        /// <summary>
+        /// 通过星期和时间段取得教室号
+        /// </summary>
+        /// <param name="weekday"></param>
+        /// <param name="period"></param>
+        /// <returns></returns>
+        public List<string> Weekday_Period_GetClnoList(string weekday, string period)
+        {
+            List<string> list = new List<string>();
+            string sql = "SELECT clno FROM TeacherCourse WHERE weekday=@weekday,period=@period";
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@weekday",weekday),
+                new SQLiteParameter("@period",period)
+            };
+            DataTable dt = SqlHelper.GetDataTable(sql, ps);
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    list.Add(row["clno"].ToString());
+                }
+                return list;
+            }
+            else
+            {
+
+            }
+            return list;
+        }
     }
 }

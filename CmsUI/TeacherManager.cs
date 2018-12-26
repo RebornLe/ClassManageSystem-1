@@ -247,12 +247,52 @@ namespace CmsUI
         }
 
 
+
         #endregion
 
         #region 教室借用
 
         #endregion
 
+        private void button7_Click(object sender, EventArgs e)//借用按钮
+        {
 
+        }
+
+        private void Weekday_Period_LoadList()//通过星期和时间段的选择，跟新表的数据源
+        {
+            TeacherCourseBLL teacherCourseBLL = new TeacherCourseBLL();            
+            BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
+            borrowClassRoomBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text).AddRange(
+                teacherCourseBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text)
+                ); 
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)//取消按钮
+        {
+            xq.Text = "";
+            jysj.Text = "";
+            jyjs.Text = "";
+            syzxm.Text = "";
+            ytsm.Text = "";
+            List<ClassRoom> list = new List<ClassRoom>();
+            dataGridView3.DataSource = list;
+        }
+
+        private void xq_SelectedIndexChanged(object sender, EventArgs e)//星期下拉选择框
+        {
+            Weekday_Period_LoadList();
+        }
+
+        private void jysj_SelectedIndexChanged(object sender, EventArgs e)//借用时间下拉选择框
+        {
+            Weekday_Period_LoadList();
+        }
+
+        private void jyjs_SelectedIndexChanged(object sender, EventArgs e)//教室号下拉框
+        {
+
+        }
     }
 }

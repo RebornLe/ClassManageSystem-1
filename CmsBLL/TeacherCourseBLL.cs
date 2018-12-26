@@ -21,5 +21,11 @@ namespace CmsBLL
             TeacherCourseDAL miDal = new TeacherCourseDAL();
             return miDal.tnoGetList(tno);
         }
+
+        public List<string> Weekday_Period_GetClnoList(string weekday, string period)
+        {
+            TeacherCourseDAL miDal = new TeacherCourseDAL();
+            return miDal.Weekday_Period_GetClnoList(weekday, period);
+        }
     }
 }

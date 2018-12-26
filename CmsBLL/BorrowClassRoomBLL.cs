@@ -21,5 +21,10 @@ namespace CmsBLL
             BorrowClassRoomDAL miDal = new BorrowClassRoomDAL();
             return miDal.clnoGetList(clno);
         }
+        public List<string> Weekday_Period_GetClnoList(string weekday, string period)
+        {
+            BorrowClassRoomDAL miDal = new BorrowClassRoomDAL();
+            return miDal.Weekday_Period_GetClnoList(weekday, period);
+        }
     }
 }
