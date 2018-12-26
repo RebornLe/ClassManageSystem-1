@@ -98,5 +98,52 @@ namespace CmsDAL
             string list = SqlHelper.ExecuteScalar(sql, p).ToString();
             return list;
         }
+
+        /// <summary>
+        /// 教师表插入一条数据
+        /// </summary>
+        /// <param name="teacher"></param>
+        /// <returns></returns>
+        public int Insert(Teacher teacher)
+        {
+            string sql = "INSERT INTO Teacher (tno,tname,sex,deptno,title,tid) Values(@tno,@tname,@sex,@deptno,@title,@tid)";
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@tno",teacher.tno),
+                new SQLiteParameter("@tname",teacher.tname),
+                new SQLiteParameter("@sex",teacher.sex),          
+                new SQLiteParameter("@deptno",teacher.deptno),
+                new SQLiteParameter("@title",teacher.title),
+                new SQLiteParameter("@tid",teacher.tid)
+            };
+            return SqlHelper.ExecuteNonQuery(sql, ps);
+        }
+
+        /// <summary>
+        /// 跟新教师表的一条数据
+        /// </summary>
+        /// <param name="teacher"></param>
+        /// <returns></returns>
+        public int Update(Teacher teacher)
+        {
+            string sql = "UPDATE Teacher SET tname=@tname,sex=@sex,deptno=@deptno,title=@title,tid=@tid WHERE tno=@tno";
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@tno",teacher.tno),
+                new SQLiteParameter("@tname",teacher.tname),
+                new SQLiteParameter("@sex",teacher.sex),
+                new SQLiteParameter("@deptno",teacher.deptno),
+                new SQLiteParameter("@title",teacher.title),
+                new SQLiteParameter("@tid",teacher.tid)
+            };
+            return SqlHelper.ExecuteNonQuery(sql, ps);
+        }
+
+        public int Delete(string tno)
+        {
+            string sql = "DELETE FROM Teacher WHERE tno=@tno";
+            SQLiteParameter p = new SQLiteParameter("@tno", tno);
+            return SqlHelper.ExecuteNonQuery(sql, p);
+        }
     }
 }

@@ -10,28 +10,39 @@ namespace CmsBLL
 {
     public class TeacherBLL
     {
+        TeacherDAL miDal = new TeacherDAL();
         public List<Teacher> GetList()
         {
-            TeacherDAL miDal = new TeacherDAL();
             return miDal.GetList();
         }
 
         public List<Teacher> tnameGetList(string tname)
         {
-            TeacherDAL miDal = new TeacherDAL();
             return miDal.tnameGetList(tname);
         }
 
         public List<string> deptnoGetNameList(string deptno)
         {
-            TeacherDAL miDal = new TeacherDAL();
             return miDal.deptnoGetNameList(deptno);
         }
 
         public string tnameGetTno(string tname)
         {
-            TeacherDAL miDal = new TeacherDAL();
             return miDal.tnameGetTno(tname);
+        }
+
+        public bool Add(Teacher teacher)
+        {
+            return miDal.Insert(teacher) > 0;
+        }
+
+        public bool Edit(Teacher teacher)
+        {
+            return miDal.Update(teacher) > 0;
+        }
+        public bool Remove(string tno)
+        {
+            return miDal.Delete(tno) > 0;
         }
     }
 }

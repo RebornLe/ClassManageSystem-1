@@ -24,9 +24,11 @@ namespace CmsUI
         {
             LoadCourseList();
             LoadClassRoomList();
+            LoadTeacherList();
         }
 
         #region 课程信息管理
+
 
         private void LoadCourseList()//显示课程表的所有数据
         {
@@ -138,6 +140,7 @@ namespace CmsUI
 
         #endregion
 
+        #region 教室信息管理
         private void ClassRoomAdd_Click(object sender, EventArgs e)//添加、修改按钮
         {
             ClassRoom classRoom=new ClassRoom()
@@ -235,5 +238,120 @@ namespace CmsUI
             Floor.Text = row.Cells[2].Value.ToString();          
             ClassRoomAdd.Text = "修改";
         }
+        #endregion
+
+        #region
+        private void TeacherAdd_Click(object sender, EventArgs e)//添加、修改按钮
+        {
+            Teacher teacher=new Teacher()
+            {
+                tno = Tno.Text,
+                tname = Tname.Text,
+                sex = Sex.Text,
+                title = Title.Text,
+                deptno = DeptnoT.Text,
+                tid =Tid.Text
+            };
+            TeacherBLL teacherBLL = new TeacherBLL();
+            #region 添加
+            if (TeacherAdd.Text.Equals("添加"))
+            {
+                if (teacherBLL.Add(teacher))
+                {
+                    MessageBox.Show("添加成功");
+
+                    LoadTeacherList();
+                }
+                else
+                {
+                    MessageBox.Show("添加失败");
+                }
+            }
+            #endregion
+            #region 修改
+            else
+            {
+                if (teacherBLL.Edit(teacher))
+                {
+                    MessageBox.Show("修改成功");
+                    LoadTeacherList();
+                    Tno.ReadOnly = false;
+                    TeacherAdd.Text = "添加";
+                }
+                else
+                {
+                    MessageBox.Show("修改失败");
+                }
+            }
+            #endregion
+            Tno.Text = "";
+            Tname.Text = "";
+            Sex.Text = "";
+            Title.Text = "";
+            DeptnoT.Text = "";
+            Tid.Text = "";
+        }
+
+        private void TeacherCancel_Click(object sender, EventArgs e)//取消按钮
+        {
+            Tno.ReadOnly = false;
+            Tno.Text = "";
+            Tname.Text = "";
+            Sex.Text = "";
+            Title.Text = "";
+            DeptnoT.Text = "";
+            Tid.Text = "";
+            TeacherAdd.Text = "添加";
+        }
+
+        private void TeacherRemove_Click(object sender, EventArgs e)//删除按钮
+        {
+            var rows = TeacherList.SelectedRows;
+            if (rows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("确定要删除吗？", "提示", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+                string tno = rows[0].Cells[0].Value.ToString();
+                TeacherBLL teacherBLL = new TeacherBLL();
+                if (teacherBLL.Remove(tno))
+                {
+                    MessageBox.Show("删除成功");
+                    LoadTeacherList();
+                }
+                else
+                {
+                    MessageBox.Show("删除失败");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择要删除的行");
+            }
+        }
+
+        private void LoadTeacherList()//教师表数据源、院系号数据源
+        {
+            TeacherBLL teacherBLL = new TeacherBLL();
+            TeacherList.DataSource = teacherBLL.GetList();
+            DepartmentBLL departmentBLL = new DepartmentBLL();
+            DeptnoT.DataSource = departmentBLL.GetAllDeptno();
+        }
+
+        private void TeacherList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)//双击表的一行数据，将数据显示在右侧添加、修改栏
+        {
+            DataGridViewRow row = TeacherList.Rows[e.RowIndex];
+            Tno.Text = row.Cells[0].Value.ToString();
+            Tno.ReadOnly = true;
+            Tname.Text = row.Cells[1].Value.ToString();
+            Sex.Text = row.Cells[2].Value.ToString();
+            DeptnoT.Text = row.Cells[3].Value.ToString();
+            Title.Text = row.Cells[4].Value.ToString();
+            Tid.Text = row.Cells[5].Value.ToString();
+            TeacherAdd.Text = "修改";
+        }
+        #endregion
     }
 }
