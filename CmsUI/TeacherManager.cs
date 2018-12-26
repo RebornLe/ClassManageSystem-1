@@ -256,20 +256,44 @@ namespace CmsUI
 
         private void button7_Click(object sender, EventArgs e)//借用按钮
         {
-
+            BorrowClassRoom borrowClassRoom = new BorrowClassRoom()
+            {
+                clno = jyjs.Text,
+                uname = syzxm.Text,
+                weekday = xq.Text,
+                period = jysj.Text,
+                use = ytsm.Text,
+                usestatus = 0
+            };
+            BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
+            if(borrowClassRoomBLL.Add(borrowClassRoom))
+            {
+                MessageBox.Show("申请成功");
+                syzxm.Text = "";
+                ytsm.Text = "";
+                Weekday_Period_LoadList();
+            }
+            else
+            {
+                MessageBox.Show("申请失败");
+            }            
         }
 
         private void Weekday_Period_LoadList()//通过星期和时间段的选择，跟新表的数据源
         {
-            TeacherCourseBLL teacherCourseBLL = new TeacherCourseBLL();
-            BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
-            ClassRoomBLL classRoomBLL = new ClassRoomBLL();
-            List<string> clnolist = borrowClassRoomBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text);
-            foreach (string clno in teacherCourseBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text))
+            if (xq.Text != "" && jysj.Text != "")
             {
-                clnolist.Add(clno);
-            }
-            dataGridView3.DataSource = classRoomBLL.GetListExptClno(clnolist);
+                TeacherCourseBLL teacherCourseBLL = new TeacherCourseBLL();
+                BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
+                ClassRoomBLL classRoomBLL = new ClassRoomBLL();
+                List<string> clnolist = borrowClassRoomBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text);
+                foreach (string clno in teacherCourseBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text))
+                {
+                    clnolist.Add(clno);
+                }
+                dataGridView3.DataSource = classRoomBLL.GetListExptClno(clnolist);
+                jyjs.DataSource = classRoomBLL.GetClnoListExptClno(clnolist);
+            }            
         }
 
         private void button5_Click(object sender, EventArgs e)//取消按钮
@@ -296,6 +320,11 @@ namespace CmsUI
         private void jyjs_SelectedIndexChanged(object sender, EventArgs e)//教室号下拉框
         {
 
+        }
+
+        private void TeacherManager_Load_1(object sender, EventArgs e)//进入窗口为星期和时间段添加数据源
+        {
+            Weekday_Period_LoadList();
         }
     }
 }

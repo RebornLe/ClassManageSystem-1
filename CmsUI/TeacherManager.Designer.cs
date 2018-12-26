@@ -1056,12 +1056,6 @@
             // jyjs
             // 
             this.jyjs.FormattingEnabled = true;
-            this.jyjs.Items.AddRange(new object[] {
-            "1、2节",
-            "3、4节",
-            "5、6节",
-            "7、8节",
-            "9、10节"});
             this.jyjs.Location = new System.Drawing.Point(89, 123);
             this.jyjs.Margin = new System.Windows.Forms.Padding(4);
             this.jyjs.Name = "jyjs";
@@ -1164,6 +1158,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "TeacherManager";
             this.Text = "教师用户界面";
+            this.Load += new System.EventHandler(this.TeacherManager_Load_1);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);

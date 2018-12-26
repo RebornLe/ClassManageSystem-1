@@ -81,12 +81,12 @@ namespace CmsDAL
         /// <returns></returns>
         public List<ClassRoom> GetListExptClno(List<string> clnolist)
         {
-            string sql = "SELECT * FROM ClassRoom WHERE clno not in (";
-            foreach(string clno in clnolist)
+            string sql = "SELECT * FROM ClassRoom WHERE clno NOT IN (";           
+            foreach (string clno in clnolist)
             {
-                sql += clno + ",";
+                sql += "'"+clno+"'," ;
             }
-            sql += " )";
+            sql += "'null')";                
             DataTable dt = SqlHelper.GetDataTable(sql);
             List<ClassRoom> list = new List<ClassRoom>();
             if (dt.Rows.Count > 0)
@@ -107,5 +107,35 @@ namespace CmsDAL
             }
             return list;
         }
+
+        /// <summary>
+        /// 取得除特定教室号的其他教室号
+        /// </summary>
+        /// <param name="clnolist"></param>
+        /// <returns></returns>
+        public List<string> GetClnoListExptClno(List<string> clnolist)
+        {
+            string sql = "SELECT * FROM ClassRoom WHERE clno NOT IN (";
+            foreach (string clno in clnolist)
+            {
+                sql += "'" + clno + "',";
+            }
+            sql += "'null')";           
+            DataTable dt = SqlHelper.GetDataTable(sql);
+            List<string> list = new List<string>();
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
+                {
+                    list.Add(row["clno"].ToString());
+                }
+            }
+            else
+            {
+
+            }
+            return list;
+        }
+
     }
 }

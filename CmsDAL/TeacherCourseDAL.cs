@@ -67,7 +67,7 @@ namespace CmsDAL
         public List<string> Weekday_Period_GetClnoList(string weekday, string period)
         {
             List<string> list = new List<string>();
-            string sql = "SELECT clno FROM TeacherCourse WHERE weekday=@weekday,period=@period";
+            string sql = "SELECT clno FROM TeacherCourse WHERE weekday=@weekday AND period=@period";
             SQLiteParameter[] ps =
             {
                 new SQLiteParameter("@weekday",weekday),
