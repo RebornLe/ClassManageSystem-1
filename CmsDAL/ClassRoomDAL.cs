@@ -79,26 +79,31 @@ namespace CmsDAL
         /// </summary>
         /// <param name="clno"></param>
         /// <returns></returns>
-        public List<ClassRoom> GetList(List<string> clnolist)
+        public List<ClassRoom> GetListExptClno(List<string> clnolist)
         {
-            string sql = "SELECT * FROM ClassRoom WHERE clno not in (@clno)";
-            SQLiteParameter[] ps = {
-                foreach(clnolist)
-                {
-                    new SQLiteParameter("@clno", clnolist. )
-                }
-                
-            };
-            DataTable dt = SqlHelper.GetDataTable(sql, p);
-            List<ClassRoom> list = new List<ClassRoom>();
-            foreach (DataRow row in dt.Rows)
+            string sql = "SELECT * FROM ClassRoom WHERE clno not in (";
+            foreach(string clno in clnolist)
             {
-                list.Add(new ClassRoom()
+                sql += clno + ",";
+            }
+            sql += " )";
+            DataTable dt = SqlHelper.GetDataTable(sql);
+            List<ClassRoom> list = new List<ClassRoom>();
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow row in dt.Rows)
                 {
-                    clno = row["clno"].ToString(),
-                    bno = row["bno"].ToString(),
-                    floor = row["floor"].ToString()
-                });
+                    list.Add(new ClassRoom()
+                    {
+                        clno = row["clno"].ToString(),
+                        bno = row["bno"].ToString(),
+                        floor = row["floor"].ToString()
+                    });
+                }
+            }
+            else
+            {
+
             }
             return list;
         }

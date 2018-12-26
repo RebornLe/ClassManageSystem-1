@@ -29,22 +29,22 @@ namespace CmsUI
         private void btnSave_Click(object sender, EventArgs e)//教室查找
         {
             string clno;
-            if (rb1.Checked==true)
+            if (rb1.Checked == true)
             {
                 clno = txtName.Text;
             }
-            
+
             else
             {
                 clno = comboBox1.Text;
             }
-            
-            clnoLoadList(clno);          
+
+            clnoLoadList(clno);
         }
 
         private void clnoLoadList(string clno)
         {
-            BorrowClassRoomBLL miBll = new BorrowClassRoomBLL();                      
+            BorrowClassRoomBLL miBll = new BorrowClassRoomBLL();
             dgvList.DataSource = miBll.clnoGetList(clno);
             ClassRoomBLL classRoomBLL = new ClassRoomBLL();
             dataGridView5.DataSource = classRoomBLL.clnoGetList(clno);
@@ -55,7 +55,7 @@ namespace CmsUI
         {
             txtName.ReadOnly = false;
             comboBox2.Visible = false;
-            comboBox1.Visible = false;                  
+            comboBox1.Visible = false;
         }
 
         private void rb2_CheckedChanged(object sender, EventArgs e)//目录
@@ -82,7 +82,7 @@ namespace CmsUI
             rb1.Checked = true;
             txtName.Text = "";
             comboBox2.Visible = false;
-            comboBox1.Visible = false;           
+            comboBox1.Visible = false;
             txtName.ReadOnly = false;
             List<BorrowClassRoom> list = new List<BorrowClassRoom>();
             dgvList.DataSource = list;
@@ -159,7 +159,7 @@ namespace CmsUI
         {
             TeacherBLL miBll = new TeacherBLL();
             TeacherCourseBLL mibll = new TeacherCourseBLL();
-            dataGridView4.DataSource = mibll.tnoGetList(miBll.tnameGetTno(tname));    
+            dataGridView4.DataSource = mibll.tnoGetList(miBll.tnameGetTno(tname));
         }
 
         private void Dept_Tname_LoadList()//按目录查询的两个下拉框数据源
@@ -261,12 +261,15 @@ namespace CmsUI
 
         private void Weekday_Period_LoadList()//通过星期和时间段的选择，跟新表的数据源
         {
-            TeacherCourseBLL teacherCourseBLL = new TeacherCourseBLL();            
+            TeacherCourseBLL teacherCourseBLL = new TeacherCourseBLL();
             BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
-            borrowClassRoomBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text).AddRange(
-                teacherCourseBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text)
-                ); 
-
+            ClassRoomBLL classRoomBLL = new ClassRoomBLL();
+            List<string> clnolist = borrowClassRoomBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text);
+            foreach (string clno in teacherCourseBLL.Weekday_Period_GetClnoList(xq.Text, jysj.Text))
+            {
+                clnolist.Add(clno);
+            }
+            dataGridView3.DataSource = classRoomBLL.GetListExptClno(clnolist);
         }
 
         private void button5_Click(object sender, EventArgs e)//取消按钮

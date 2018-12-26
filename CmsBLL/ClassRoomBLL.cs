@@ -25,5 +25,10 @@ namespace CmsBLL
             ClassRoomDAL miDal = new ClassRoomDAL();
             return miDal.clnoGetList(clno);
         }
+        public List<ClassRoom> GetListExptClno(List<string> clnolist)
+        {
+            ClassRoomDAL miDal = new ClassRoomDAL();
+            return miDal.GetListExptClno(clnolist);
+        }
     }
 }
