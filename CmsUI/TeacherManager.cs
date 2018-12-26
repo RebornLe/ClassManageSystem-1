@@ -137,16 +137,7 @@ namespace CmsUI
             yx.Visible = false;
             js.Visible = false;
             List<Teacher> list = new List<Teacher>();
-            dataGridView1.DataSource = list;
-
-            //rb2.Checked = false;
-            //rb1.Checked = true;
-            //txtName.Text = "";
-            //comboBox2.Visible = false;
-            //comboBox1.Visible = false;
-            //txtName.ReadOnly = false;
-            //List<BorrowClassRoom> list = new List<BorrowClassRoom>();
-            //dgvList.DataSource = list;
+            dataGridView1.DataSource = list;          
         }
 
         private void tnameLoadList(string tname)//将按名取得的教师信息赋给表1的数据源
