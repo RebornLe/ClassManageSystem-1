@@ -10,30 +10,39 @@ namespace CmsBLL
 {
     public class ClassRoomBLL
     {
+        ClassRoomDAL miDal = new ClassRoomDAL();
         public List<ClassRoom> GetList()
-        {
-            ClassRoomDAL miDal = new ClassRoomDAL();
+        {           
             return miDal.GetList();
         }
         public List<string> bnoGetClno(string bno)
         {
-            ClassRoomDAL miDal = new ClassRoomDAL();
             return miDal.bnoGetClno(bno);
         }
         public List<ClassRoom> clnoGetList(string clno)
         {
-            ClassRoomDAL miDal = new ClassRoomDAL();
             return miDal.clnoGetList(clno);
         }
         public List<ClassRoom> GetListExptClno(List<string> clnolist)
         {
-            ClassRoomDAL miDal = new ClassRoomDAL();
             return miDal.GetListExptClno(clnolist);
         }
         public List<string> GetClnoListExptClno(List<string> clnolist)
         {
-            ClassRoomDAL miBll = new ClassRoomDAL();
-            return miBll.GetClnoListExptClno(clnolist);
+            return miDal.GetClnoListExptClno(clnolist);
+        }
+        public bool Add(ClassRoom classRoom)
+        {
+            return miDal.Insert(classRoom) > 0;
+        }
+
+        public bool Edit(ClassRoom classRoom)
+        {
+            return miDal.Update(classRoom) > 0;
+        }
+        public bool Remove(string clno)
+        {
+            return miDal.Delete(clno) > 0;
         }
     }
 }

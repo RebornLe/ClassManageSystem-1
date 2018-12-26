@@ -137,5 +137,51 @@ namespace CmsDAL
             return list;
         }
 
+        /// <summary>
+        /// 向教室表插入一条数据
+        /// </summary>
+        /// <param name="classRoom"></param>
+        /// <returns></returns>
+        public int Insert(ClassRoom classRoom)
+        {
+            string sql = "INSERT INTO ClassRoom (clno,bno,floor) Values(@clno,@bno,@floor)";
+            SQLiteParameter[] ps =
+            {
+                new SQLiteParameter("@clno",classRoom.clno),
+                new SQLiteParameter("@bno",classRoom.bno),
+                new SQLiteParameter("@floor",classRoom.floor)
+            };
+            return SqlHelper.ExecuteNonQuery(sql, ps);
+        }
+
+        /// <summary>
+        /// 更新教室表的一条数据  
+        /// </summary>
+        /// <param name="classRoom"></param>
+        /// <returns></returns>
+        public int Update(ClassRoom classRoom)
+        {
+            string sql = "UPDATE ClassRoom SET bno=@bno,floor=@floor WHERE clno=@clno";
+            SQLiteParameter[] ps =
+            {               
+                new SQLiteParameter("@bno",classRoom.bno),
+                new SQLiteParameter("@clno",classRoom.clno),
+                new SQLiteParameter("@floor",classRoom.floor)
+            };
+            return SqlHelper.ExecuteNonQuery(sql, ps);
+        }
+
+        /// <summary>
+        /// 删除教室表的一条数据
+        /// </summary>
+        /// <param name="clno"></param>
+        /// <returns></returns>
+        public int Delete(string clno)
+        {
+            string sql = "DELETE FROM ClassRoom WHERE clno=@clno";
+            SQLiteParameter p = new SQLiteParameter("@clno", clno);
+            return SqlHelper.ExecuteNonQuery(sql, p);
+        }
+
     }
 }

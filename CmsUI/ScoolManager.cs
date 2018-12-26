@@ -23,7 +23,10 @@ namespace CmsUI
         private void ScoolManager_Load(object sender, EventArgs e)
         {
             LoadCourseList();
+            LoadClassRoomList();
         }
+
+        #region 课程信息管理
 
         private void LoadCourseList()//显示课程表的所有数据
         {
@@ -131,6 +134,106 @@ namespace CmsUI
             {
                 MessageBox.Show("请选择要删除的行");
             }
+        }
+
+        #endregion
+
+        private void ClassRoomAdd_Click(object sender, EventArgs e)//添加、修改按钮
+        {
+            ClassRoom classRoom=new ClassRoom()
+            {
+                clno = Clno.Text,
+                bno = Bno.Text,
+                floor = Floor.Text
+            };
+            ClassRoomBLL classRoomBLL = new ClassRoomBLL();
+            #region 添加
+            if (ClassRoomAdd.Text.Equals("添加"))
+            {
+                if (classRoomBLL.Add(classRoom))
+                {
+                    MessageBox.Show("添加成功");
+
+                    LoadClassRoomList();
+                }
+                else
+                {
+                    MessageBox.Show("添加失败");
+                }
+            }
+            #endregion
+            #region 修改
+            else
+            {
+                if (classRoomBLL.Edit(classRoom))
+                {
+                    MessageBox.Show("修改成功");
+                    LoadClassRoomList();
+                    Clno.ReadOnly = false;
+                    ClassRoomAdd.Text = "添加";
+                }
+                else
+                {
+                    MessageBox.Show("修改失败");
+                }
+            }
+            #endregion
+            Clno.Text = "";
+            Bno.Text = "";
+            Floor.Text = "";
+        }
+
+        private void ClassRoomCancel_Click(object sender, EventArgs e)//取消按钮
+        {
+            Clno.ReadOnly = false;
+            Clno.Text = "";
+            Bno.Text = "";
+            Floor.Text = "";
+            ClassRoomAdd.Text = "添加";
+        }
+
+        private void ClassRoomRemove_Click(object sender, EventArgs e)//删除按钮
+        {
+            var rows = ClassRoomList.SelectedRows;
+            if (rows.Count > 0)
+            {
+                DialogResult result = MessageBox.Show("确定要删除吗？", "提示", MessageBoxButtons.OKCancel);
+                if (result == DialogResult.Cancel)
+                {
+                    return;
+                }
+                string clno = rows[0].Cells[0].Value.ToString();
+                ClassRoomBLL classRoomBLL = new ClassRoomBLL();
+                if (classRoomBLL.Remove(clno))
+                {
+                    MessageBox.Show("删除成功");
+                    LoadClassRoomList();
+                }
+                else
+                {
+                    MessageBox.Show("删除失败");
+                }
+            }
+            else
+            {
+                MessageBox.Show("请选择要删除的行");
+            }
+        }
+
+        private void LoadClassRoomList()//列表数据源显示所有教室数据
+        {
+            ClassRoomBLL classRoom = new ClassRoomBLL();
+            ClassRoomList.DataSource = classRoom.GetList();
+        }
+
+        private void ClassRoomList_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)//双击一行
+        {
+            DataGridViewRow row = ClassRoomList.Rows[e.RowIndex];
+            Clno.Text = row.Cells[0].Value.ToString();
+            Clno.ReadOnly = true;
+            Bno.Text = row.Cells[1].Value.ToString();
+            Floor.Text = row.Cells[2].Value.ToString();          
+            ClassRoomAdd.Text = "修改";
         }
     }
 }
