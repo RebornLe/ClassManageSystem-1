@@ -21,6 +21,8 @@ namespace CmsUI
             comboBox1.Visible = false;
             yx.Visible = false;
             js.Visible = false;
+            yxm.Visible = false;
+            kc.Visible = false;
         }
 
         #region 教室查询子系统
@@ -44,6 +46,8 @@ namespace CmsUI
         {
             BorrowClassRoomBLL miBll = new BorrowClassRoomBLL();                      
             dgvList.DataSource = miBll.clnoGetList(clno);
+            ClassRoomBLL classRoomBLL = new ClassRoomBLL();
+            dataGridView5.DataSource = classRoomBLL.clnoGetList(clno);
             //dgvList.Columns["usestatus"].Visible = false;
         }
 
@@ -69,7 +73,7 @@ namespace CmsUI
             TeachBuildingBLL mibll = new TeachBuildingBLL();
             string bname = comboBox2.Text;
             ClassRoomBLL miBll = new ClassRoomBLL();
-            comboBox1.DataSource = miBll.GetClno(mibll.BuildingsNameToNoumber(bname));
+            comboBox1.DataSource = miBll.bnoGetClno(mibll.BuildingsNameToNoumber(bname));
         }
 
         private void btnCancel_Click(object sender, EventArgs e)//取消按钮，还原
@@ -81,7 +85,9 @@ namespace CmsUI
             comboBox1.Visible = false;           
             txtName.ReadOnly = false;
             List<BorrowClassRoom> list = new List<BorrowClassRoom>();
-            dgvList.DataSource = list;           
+            dgvList.DataSource = list;
+            List<ClassRoom> list2 = new List<ClassRoom>();
+            dataGridView5.DataSource = list2;
         }
 
 
@@ -138,7 +144,9 @@ namespace CmsUI
             yx.Visible = false;
             js.Visible = false;
             List<Teacher> list = new List<Teacher>();
-            dataGridView1.DataSource = list;          
+            dataGridView1.DataSource = list;
+            List<TeacherCourse> list2 = new List<TeacherCourse>();
+            dataGridView4.DataSource = list2;
         }
 
         private void tnameLoadList(string tname)//将按名取得的教师信息赋给表1的数据源
@@ -171,13 +179,73 @@ namespace CmsUI
             string deptname = yx.Text;
             js.DataSource = miBll.deptnoGetNameList(mibll.GetDeptno(deptname));
         }
-        #endregion
-
-        #region 教师查询
 
         #endregion
 
         #region 课程查询
+
+        private void radioButton4_CheckedChanged(object sender, EventArgs e)//关键词
+        {
+            kcmc.ReadOnly = false;
+            yxm.Visible = false;
+            kc.Visible = false;
+        }
+
+        private void radioButton3_CheckedChanged(object sender, EventArgs e)//目录
+        {
+            kcmc.ReadOnly = true;
+            kcmc.Text = "";
+            yxm.Visible = true;
+            kc.Visible = true;
+            Deptname_Cname_LoadList();
+        }
+
+        private void Deptname_Cname_LoadList()//设置目录查询的两个下拉框的数据源
+        {
+            DepartmentBLL departmentBLL = new DepartmentBLL();
+            yxm.DataSource = departmentBLL.GetAllDeptname();
+            CourseBLL courseBLL = new CourseBLL();
+            kc.DataSource = courseBLL.deptnoGetcname(departmentBLL.GetDeptno(yxm.Text));
+        }
+
+        private void button4_Click(object sender, EventArgs e)//查找
+        {
+            string cname;
+            if (radioButton4.Checked == true)
+            {
+                cname = kcmc.Text;
+            }
+            else
+            {
+                cname = kc.Text;
+            }
+            cnameLoadList(cname);
+        }
+
+        private void cnameLoadList(string cname)
+        {
+            CourseBLL miBll = new CourseBLL();
+            dataGridView2.DataSource = miBll.cnameGetList(cname);
+        }
+
+        private void button3_Click(object sender, EventArgs e)//取消
+        {
+            radioButton4.Checked = true;
+            kcmc.Text = "";
+            kcmc.ReadOnly = false;
+            yxm.Visible = false;
+            kc.Visible = false;
+            List<Course> list = new List<Course>();
+            dataGridView2.DataSource = list;
+        }
+
+        private void yxm_SelectedIndexChanged(object sender, EventArgs e)//院系改变，课程下拉框数据源改变
+        {
+            DepartmentBLL departmentBLL = new DepartmentBLL();
+            CourseBLL courseBLL = new CourseBLL();
+            kc.DataSource = courseBLL.deptnoGetcname(departmentBLL.GetDeptno(yxm.Text));
+        }
+
 
         #endregion
 

@@ -38,7 +38,7 @@ namespace CmsDAL
         /// </summary>
         /// <param name="bno"></param>
         /// <returns></returns>
-        public List<string> GetClno(string bno)
+        public List<string> bnoGetClno(string bno)
         {
             string sql = "SELECT clno FROM ClassRoom WHERE bno=@bno";
             SQLiteParameter p = new SQLiteParameter("@bno",bno);
@@ -47,6 +47,29 @@ namespace CmsDAL
             foreach (DataRow row in dt.Rows)
             {
                 list.Add(row["clno"].ToString());
+            }
+            return list;
+        }
+
+        /// <summary>
+        /// 根据教室号取得教室表的指定数据
+        /// </summary>
+        /// <param name="clno"></param>
+        /// <returns></returns>
+        public List<ClassRoom> clnoGetList(string clno)
+        {
+            string sql = "SELECT * FROM ClassRoom WHERE clno=@clno";
+            SQLiteParameter p = new SQLiteParameter("@clno", clno);
+            DataTable dt = SqlHelper.GetDataTable(sql,p);
+            List<ClassRoom> list = new List<ClassRoom>();
+            foreach (DataRow row in dt.Rows)
+            {
+                list.Add(new ClassRoom()
+                {
+                    clno = row["clno"].ToString(),
+                    bno = row["bno"].ToString(),
+                    floor = row["floor"].ToString()
+                });
             }
             return list;
         }

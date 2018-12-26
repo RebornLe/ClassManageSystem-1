@@ -15,10 +15,15 @@ namespace CmsBLL
             ClassRoomDAL miDal = new ClassRoomDAL();
             return miDal.GetList();
         }
-        public List<string> GetClno(string bno)
+        public List<string> bnoGetClno(string bno)
         {
             ClassRoomDAL miDal = new ClassRoomDAL();
-            return miDal.GetClno(bno);
+            return miDal.bnoGetClno(bno);
+        }
+        public List<ClassRoom> clnoGetList(string clno)
+        {
+            ClassRoomDAL miDal = new ClassRoomDAL();
+            return miDal.clnoGetList(clno);
         }
     }
 }
