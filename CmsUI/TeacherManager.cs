@@ -252,8 +252,6 @@ namespace CmsUI
 
         #region 教室借用
 
-        #endregion
-
         private void button7_Click(object sender, EventArgs e)//借用按钮
         {
             BorrowClassRoom borrowClassRoom = new BorrowClassRoom()
@@ -266,7 +264,7 @@ namespace CmsUI
                 usestatus = 0
             };
             BorrowClassRoomBLL borrowClassRoomBLL = new BorrowClassRoomBLL();
-            if(borrowClassRoomBLL.Add(borrowClassRoom))
+            if (borrowClassRoomBLL.Add(borrowClassRoom))
             {
                 MessageBox.Show("申请成功");
                 syzxm.Text = "";
@@ -276,7 +274,7 @@ namespace CmsUI
             else
             {
                 MessageBox.Show("申请失败");
-            }            
+            }
         }
 
         private void Weekday_Period_LoadList()//通过星期和时间段的选择，跟新表的数据源
@@ -293,7 +291,7 @@ namespace CmsUI
                 }
                 dataGridView3.DataSource = classRoomBLL.GetListExptClno(clnolist);
                 jyjs.DataSource = classRoomBLL.GetClnoListExptClno(clnolist);
-            }            
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)//取消按钮
@@ -326,5 +324,8 @@ namespace CmsUI
         {
             Weekday_Period_LoadList();
         }
+        #endregion
+
+
     }
 }

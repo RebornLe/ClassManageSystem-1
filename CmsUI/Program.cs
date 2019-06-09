@@ -20,8 +20,8 @@ namespace CmsUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //  Application.Run(new Login());
-            //Application.Run(new TeacherManager());
-            Application.Run(new ScoolManager());
+            Application.Run(new TeacherManager());
+            //Application.Run(new ScoolManager());
         }
     }
 }
